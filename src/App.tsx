@@ -6,7 +6,7 @@ interface MinuteData {
 }
 
 function App() {
-  /*   const [data, setData] = useState<{ minutely: MinuteData[] }>();
+  const [data, setData] = useState<{ minutely: MinuteData[] }>();
 
   useEffect(() => {
     const url =
@@ -28,9 +28,7 @@ function App() {
         return <li> {`${item.dt}: ${item.precipitation}`} </li>;
       })}
     </ul>
-  ); */
-
-  return <div> Hello World!</div>;
+  );
 }
 
 export default App;
