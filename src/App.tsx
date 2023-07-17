@@ -8,7 +8,7 @@ interface MinuteData {
 function App() {
   const [data, setData] = useState<{ minutely: MinuteData[] }>();
 
-  useEffect(() => {
+/*   useEffect(() => {
     const url =
       'https://api.openweathermap.org/data/3.0/onecall' +
       '?lat=40.7831&lon=-73.9712&units=imperial&appid=3853991e651353fcbcf2e48d3efa1bb8';
@@ -19,7 +19,7 @@ function App() {
     };
     fetchWeatherData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); */
 
   return (
     <ul>
