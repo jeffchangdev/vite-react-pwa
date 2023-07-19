@@ -55,7 +55,7 @@ export default function RainChart() {
         duration: 2500,
         easing: 'linear',
         from: 0.2,
-        to: 0.5,
+        to: 0.6,
         loop: true,
       },
     },
