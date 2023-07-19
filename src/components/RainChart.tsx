@@ -18,7 +18,7 @@ export default function RainChart() {
       x: {
         grid: { display: false },
         ticks: {
-          callback: (value, index, ticks) =>
+          callback: (_value, index) =>
             index % 3 === 0 ? `${index + 1} min` : null,
           padding: 0,
         },
@@ -27,7 +27,7 @@ export default function RainChart() {
       y: {
         grid: { display: true, z: 1 },
         ticks: {
-          callback(value, index, ticks) {
+          callback(value) {
             if (value === 30) return 'H';
             if (value === 20) return 'M';
             if (value === 10) return 'L';
