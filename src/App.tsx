@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import fetchMinutelyData from './mockApi';
+import RainChart from './components/RainChart';
 
 interface MinuteData {
   dt: number;
@@ -8,6 +10,7 @@ interface MinuteData {
 function App() {
   const [data, setData] = useState<{ minutely: MinuteData[] }>();
 
+  /*
   useEffect(() => {
     const url =
       'https://api.openweathermap.org/data/3.0/onecall' +
@@ -20,14 +23,33 @@ function App() {
     fetchWeatherData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  */
+
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      const response = await fetchMinutelyData();
+      const typedresponse = response as { minutely: MinuteData[] };
+      setData(typedresponse);
+    };
+    fetchWeatherData();
+  }, []);
 
   return (
-    <ul>
-      {data?.minutely.map((item: MinuteData) => {
-        // eslint-disable-next-line react/jsx-key
-        return <li> {`${item.dt}: ${item.precipitation}`} </li>;
-      })}
-    </ul>
+    <>
+      <div>
+        <RainChart />
+      </div>
+      <ul>
+        {data?.minutely.map((item: MinuteData) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <span className="horizontal-list-item">
+              {`${item.dt}: ${item.precipitation} `}
+            </span>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 

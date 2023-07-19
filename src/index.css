@@ -1,0 +1,4 @@
+.horizontal-list-item {
+  display: inline-block;
+  margin-right: 10px; /* Optional: Add some spacing between items */
+}
