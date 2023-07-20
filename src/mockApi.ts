@@ -1,4 +1,5 @@
-export default function fetchMinutelyData() {
+export default function fetchMinutelyData(lat: number, lon: number) {
+  console.log(lat, lon)
   return new Promise((resolve) => {
     setTimeout(
       () =>

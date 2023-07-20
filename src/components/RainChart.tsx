@@ -55,7 +55,7 @@ export default function RainChart() {
         duration: 2500,
         easing: 'linear',
         from: 0.2,
-        to: 0.6,
+        to: 0.4,
         loop: true,
       },
     },
@@ -66,11 +66,11 @@ export default function RainChart() {
     labels: Array.from({ length: 10 }, (_, index) => index + 1),
     datasets: [
       {
-        fill: true,
         data: [10, 15, 30, 2, 5, 1, 7, 42, 30, 40],
-        borderColor: '#0059b3',
-        backgroundColor: '#0066cc',
+        fill: true,
+        backgroundColor: 'rgba(0, 102, 204, .7)',
         tension: 0.3,
+        showLine: false,
       },
     ],
   };
