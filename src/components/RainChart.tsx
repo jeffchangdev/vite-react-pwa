@@ -9,35 +9,29 @@ import {
   ChartOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { MinutelyForecast } from '../types/types';
+import { minMaxify } from '../utils/utilities';
 
 ChartJS.register(Filler, CategoryScale, LinearScale, PointElement, LineElement);
 
-export default function RainChart() {
+type ChartProps = {
+  rainData: MinutelyForecast[];
+};
+
+export default function RainChart({ rainData }: ChartProps) {
   const options: ChartOptions<'line'> = {
     scales: {
       x: {
         grid: { display: false },
-        ticks: {
-          callback: (_value, index) =>
-            index % 3 === 0 ? `${index + 1} min` : null,
-          padding: 0,
-        },
-        border: { display: false },
+        ticks: { display: false },
+        border: { display: true },
       },
       y: {
-        grid: { display: true, z: 1 },
-        ticks: {
-          callback(value) {
-            if (value === 30) return 'H';
-            if (value === 20) return 'M';
-            if (value === 10) return 'L';
-            return null;
-          },
-          padding: 0,
-        },
-        border: { display: false },
+        grid: { display: false, z: 1 },
+        border: { display: true },
+        ticks: { display: false },
         min: 0,
-        max: 30,
+        max: 24,
       },
     },
     elements: {
@@ -47,12 +41,12 @@ export default function RainChart() {
     plugins: {
       title: {
         display: false,
-        text: 'Chart.js Line Chart',
+        text: 'Hourly Rain',
       },
     },
     animations: {
       tension: {
-        duration: 2500,
+        duration: 3000,
         easing: 'linear',
         from: 0.2,
         to: 0.4,
@@ -63,14 +57,15 @@ export default function RainChart() {
   };
 
   const data: ChartData<'line'> = {
-    labels: Array.from({ length: 10 }, (_, index) => index + 1),
+    labels: Array.from({ length: rainData.length }, (_, index) => index),
     datasets: [
       {
-        data: [10, 15, 30, 2, 5, 1, 7, 42, 30, 40],
+        data: minMaxify(rainData),
         fill: true,
         backgroundColor: 'rgba(0, 102, 204, .7)',
         tension: 0.3,
         showLine: false,
+        spanGaps: true,
       },
     ],
   };
