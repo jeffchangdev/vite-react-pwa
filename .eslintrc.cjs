@@ -23,5 +23,10 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'no-console': 'off',
   },
-  ignorePatterns: ['vite.config.ts', 'mockForecastData.ts'],
+  ignorePatterns: [
+    'vite.config.ts',
+    'mockForecastData.ts',
+    'node_modules/',
+    'dev-dist/',
+  ],
 };
