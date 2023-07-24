@@ -44,7 +44,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   '50': FaSmog,
 };
 
-export function icon(id: string) {
+export function getIcon(id: string) {
   return iconMap[id];
 }
 
