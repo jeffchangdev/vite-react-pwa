@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
+import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import RainChart from './components/RainChart';
+import Currently from './components/Currently';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
@@ -17,24 +18,28 @@ function App() {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        // fetchForecast(latitude, longitude, apiKey, setForecast),
-        fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        fetchForecast(latitude, longitude, apiKey, setForecast),
+        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
   }, []);
 
-  let city;
-  if (locale && locale.length > 0) {
-    city = locale[0].local_names.en;
-  }
+  const canDisplay = location && forecast && locale;
 
   return (
-    <>
-      <div>{`${location?.latitude} ${location?.longitude}`}</div>
-      <div>{city}</div>
-      <div>{forecast ? <RainChart rainData={forecast.minutely} /> : null}</div>
-    </>
+    canDisplay && (
+      <>
+        <div>{`${location?.latitude} ${location?.longitude}`}</div>
+        <div>{locale[0].local_names.en}</div>
+        <div>
+          <Currently dt={forecast.current.dt} temp={forecast.current.temp} />
+        </div>
+        <div>
+          <RainChart rainData={forecast.minutely} />
+        </div>
+      </>
+    )
   );
 }
 

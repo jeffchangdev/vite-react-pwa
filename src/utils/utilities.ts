@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+/* eslint-disable no-restricted-syntax */
 import {
   FaSun,
   FaCloudSun,
@@ -7,7 +9,7 @@ import {
   FaSnowflake,
   FaSmog,
 } from 'react-icons/fa6';
-import { MinutelyForecast } from '../types/types';
+import { HourlyForecast, MinutelyForecast } from '../types/types';
 
 export function minMaxify(arr: MinutelyForecast[]) {
   const data = arr.map(({ precipitation }) => precipitation);
@@ -44,4 +46,36 @@ const iconMap: { [key: string]: React.ElementType } = {
 
 export function icon(id: string) {
   return iconMap[id];
+}
+
+export function rainingNow(arr: MinutelyForecast[]) {
+  for (const { precipitation } of arr) {
+    if (precipitation > 0) return true;
+  }
+
+  return false;
+}
+
+export function checkIfRainLater(dt: number, arr: HourlyForecast[]) {
+  for (const hourForecast of arr) {
+    // arr contains full 24 hours. if current time < the hour then skip
+    if (hourForecast.dt < dt) continue;
+
+    const iconNum = Number(hourForecast.weather[0].icon);
+    if (iconNum > 8 && iconNum < 14) return hourForecast.dt;
+  }
+
+  return false;
+}
+
+export function convertUnixTimeToLocal(dt: number) {
+  const milliseconds = dt * 1000;
+  const dateObject = new Date(milliseconds);
+  const month = dateObject.toLocaleString('en-US', { month: 'long' });
+  const day = dateObject.getDate();
+  const hour = dateObject.getHours();
+  const minute = dateObject.getMinutes();
+
+  console.log(month, day, hour, minute);
+  return { month, day, hour, minute };
 }

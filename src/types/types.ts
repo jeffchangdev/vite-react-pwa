@@ -29,6 +29,7 @@ export interface HourlyForecast {
 }
 
 export interface Forecast {
+  timezone_offset: number;
   current: HourlyForecast;
   minutely: MinutelyForecast[];
   hourly: HourlyForecast[];
