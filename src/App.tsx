@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
+import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
+import WeeklyForecastList from './components/WeeklyForecastList';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
@@ -18,8 +19,8 @@ function App() {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        // fetchForecast(latitude, longitude, apiKey, setForecast),
-        fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        fetchForecast(latitude, longitude, apiKey, setForecast),
+        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
@@ -41,6 +42,9 @@ function App() {
         </div>
         <div>
           <RainChart rainData={forecast.minutely} />
+        </div>
+        <div>
+          <WeeklyForecastList arr={forecast.daily} />
         </div>
       </>
     )

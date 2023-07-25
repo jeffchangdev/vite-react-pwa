@@ -1,10 +1,26 @@
-.horizontal-list-item {
-  display: inline-block;
-  margin-right: 10px; /* Optional: Add some spacing between items */
-}
-
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 11px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adjust {
+  display: inline;
+  color: pink;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  background-color: #F7F7F7;
+  height:175px;
 }
