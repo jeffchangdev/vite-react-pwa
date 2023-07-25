@@ -55,7 +55,7 @@ export const fetchLocale = async (
   setState: React.Dispatch<React.SetStateAction<Locale[] | undefined>>
 ) => {
   const response = await fetch(
-    'http://api.openweathermap.org/geo/1.0/reverse' +
+    'https://api.openweathermap.org/geo/1.0/reverse' +
       `?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}`
   );
   const jsonData = await response.json();
