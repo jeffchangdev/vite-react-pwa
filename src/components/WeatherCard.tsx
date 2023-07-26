@@ -31,7 +31,7 @@ export default function WeatherCard({
       <div key={key} className="flex-container">
         <div>{`${dayName}, ${displayDate} `}</div>
         <div className="flex-container">
-          <div>{`${Math.round(min)} / ${Math.round(max)} °F`}</div>
+          <div>{`${Math.round(min)} | ${Math.round(max)} °F`}</div>
           <div className="adjust">
             <IconComponent />
           </div>
