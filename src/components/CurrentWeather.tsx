@@ -17,11 +17,11 @@ export default function CurrentWeather({ dt, temp, iconID }: CurrentlyProps) {
 
   return (
     <>
-      <div>
+      <div className="emphasis">
         <IconComponent />
       </div>
-      <div>{Math.round(temp)}°F</div>
-      <div>last forecasted on {lastUpdatedDateTime}</div>
+      <div className="emphasis">{Math.round(temp)}°F</div>
+      <div>last updated on {lastUpdatedDateTime}</div>
     </>
   );
 }

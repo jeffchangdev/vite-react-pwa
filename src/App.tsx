@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { GeoLocation, Locale, Forecast } from './types/types';
 import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
+import Overlay from './components/RainChartOverlay';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyForecastList from './components/WeeklyForecastList';
+import RainChartTicks from './components/RachChartTicks';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
@@ -27,26 +29,38 @@ function App() {
   }, []);
 
   const canDisplay = location && forecast && locale;
+  const latDisplay = canDisplay && +location.latitude.toFixed(2);
+  const lonDisplay = canDisplay && +location.longitude.toFixed(2);
 
   return (
     canDisplay && (
-      <>
-        <div>{`${location.latitude} ${location.longitude}`}</div>
-        <div>{`${locale[0].local_names.en}, ${locale[0].state}`}</div>
-        <div>
+      <div className="app">
+        <div className="center">
+          <div>{`${locale[0].local_names.en}, ${locale[0].state} ${locale[0].country}`}</div>
+          <div>{`${latDisplay}, ${lonDisplay}`}</div>
+        </div>
+        <div className="primary">
           <CurrentWeather
             dt={forecast.current.dt}
             temp={forecast.current.temp}
             iconID={forecast.current.weather[0].icon}
           />
         </div>
-        <div>
-          <RainChart rainData={forecast.minutely} />
+        <div className="rain-display">
+          <div className="chart-container">
+            <RainChart rainData={forecast.minutely} />
+            <div className="overlay-container">
+              <Overlay />
+            </div>
+          </div>
+          <div className="ticks-container">
+            <RainChartTicks />
+          </div>
         </div>
-        <div>
+        <div className="weekly-container">
           <WeeklyForecastList arr={forecast.daily} />
         </div>
-      </>
+      </div>
     )
   );
 }

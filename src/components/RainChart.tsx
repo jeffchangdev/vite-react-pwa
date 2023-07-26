@@ -62,7 +62,7 @@ export default function RainChart({ rainData }: ChartProps) {
       {
         data: minMaxify(rainData),
         fill: true,
-        backgroundColor: 'rgba(0, 102, 204, .7)',
+        backgroundColor: 'rgba(197, 226, 247, 1)',
         tension: 0.3,
         showLine: false,
         spanGaps: true,

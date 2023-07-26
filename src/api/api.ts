@@ -59,6 +59,5 @@ export const fetchLocale = async (
       `?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}`
   );
   const jsonData = await response.json();
-  console.log(jsonData);
   setState(jsonData);
 };

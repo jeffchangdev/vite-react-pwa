@@ -76,6 +76,5 @@ export function convertUnixTimeToLocal(dt: number) {
   const hour = dateObject.getHours();
   const minute = dateObject.getMinutes();
 
-  console.log(month, day, hour, minute);
   return { month, day, hour, minute };
 }

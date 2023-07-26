@@ -7,6 +7,7 @@ export interface Locale {
   name: string;
   local_names: { en: string };
   state: string;
+  country: string;
 }
 
 export interface MinutelyForecast {
