@@ -18,7 +18,7 @@ export default defineConfig({
         short_name: "minutely",
         description: "vite react weather app",
         background_color: "#ffffff",
-        theme_color: "#0066cc",
+        theme_color: "#0059b3",
         display: "standalone",
         scope: "/",
         start_url: "/",
