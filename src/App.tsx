@@ -6,6 +6,7 @@ import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyForecastList from './components/WeeklyForecastList';
 import RainChartTicks from './components/RachChartTicks';
+import LastUpdated from './components/LastUpdatedLabel';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
@@ -15,8 +16,6 @@ function App() {
   const apiKey = '3853991e651353fcbcf2e48d3efa1bb8';
 
   useEffect(() => {
-    // fetchGeoLocation();
-    // fetchGeoLocation().then(({ lat, lon }) => fetchWeatherData(lat, lon));
     const fetchData = async () => {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
@@ -26,22 +25,23 @@ function App() {
       ]);
     };
     fetchData();
+    console.log('log: ', location, forecast, locale);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const canDisplay = location && forecast && locale;
-  const latDisplay = canDisplay && +location.latitude.toFixed(2);
-  const lonDisplay = canDisplay && +location.longitude.toFixed(2);
 
   return (
     canDisplay && (
       <div className="app">
-        <div className="center">
-          <div>{`${locale[0].local_names.en}, ${locale[0].state} ${locale[0].country}`}</div>
-          <div>{`${latDisplay}, ${lonDisplay}`}</div>
+        <div className="header">
+          <div>{`${locale[0].local_names.en}, ${locale[0].state}`}</div>
+          <div className="secondary">
+            <LastUpdated dt={forecast.current.dt} />
+          </div>
         </div>
         <div className="primary">
           <CurrentWeather
-            dt={forecast.current.dt}
             temp={forecast.current.temp}
             iconID={forecast.current.weather[0].icon}
           />
