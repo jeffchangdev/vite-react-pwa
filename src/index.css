@@ -19,6 +19,7 @@ body {
   color: gray;
   margin-left: 5px;
   margin-top: 2px;
+  font-size: 15px;
 }
 
 .flex-down {
@@ -28,13 +29,13 @@ body {
   margin-bottom: 15px;
   background-color: #FDFDFD;
   height:30vh;
-  font-size: 15px;
 }
 
 .weekly-container {
   width: 96%;
   padding-left: 9px;
   margin-top: 20px;
+  font-size: 15px;
 }
 
 .narrow-width {
@@ -46,7 +47,7 @@ body {
   width: 100%;
   height: 20vh;
   padding-right: 2%;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .overlay-container {
@@ -96,6 +97,8 @@ body {
 }
 
 .rain-display {
+  position:relative;
+  width: 100%;
   padding-right: .48%;
 }
 

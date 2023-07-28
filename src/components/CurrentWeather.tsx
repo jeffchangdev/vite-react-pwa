@@ -20,47 +20,49 @@ export default function CurrentWeather({
   return (
     <>
       <div
-        className="flex-down-center"
+        className="flex-across-center"
         style={{
-          fontSize: '25px',
           marginTop: '10%',
-          color: 'gray',
         }}
       >
-        <IconComponent />
+        <div style={{ fontSize: '15px', color: 'black' }}>
+          {`${Math.round(min)} | ${Math.round(max)}`}
+        </div>
+        <div
+          style={{
+            marginLeft: '5px',
+            marginTop: '-6px',
+            color: 'gray',
+            fontSize: '25px',
+          }}
+        >
+          <IconComponent />
+        </div>
       </div>
       <div
         className="flex-across-center"
         style={{
           fontSize: '65px',
-          marginTop: '-18px',
-          color: '#0066cc',
+          marginTop: '-25px',
+          color: '#0059b3',
         }}
       >
         <div>{Math.round(temp)}</div>
         <div style={{ fontSize: '45px', marginTop: '6px' }}>°</div>
         <div>F</div>
       </div>
-      <div style={{ marginTop: '-20px' }}>
+      <div className="flex-across-center">
         <div
-          className="flex-down-center"
-          style={{ fontSize: '15px', marginTop: '0px' }}
+          style={{
+            position: 'relative',
+            fontSize: '14px',
+            width: '45%',
+            overflowWrap: 'break-word',
+            textAlign: 'center',
+            marginTop: '-20px',
+          }}
         >
-          {`${Math.round(min)} | ${Math.round(max)}`}
-        </div>
-        <div className="flex-across-center">
-          <div
-            style={{
-              position: 'relative',
-              fontSize: '14px',
-              width: '45%',
-              overflowWrap: 'break-word',
-              textAlign: 'center',
-              marginTop: '-4px',
-            }}
-          >
-            {description}
-          </div>
+          {description}
         </div>
       </div>
     </>

@@ -38,22 +38,16 @@ export default function RainChart({ rainData }: ChartProps) {
       point: { pointStyle: false },
     },
     responsive: true,
-    plugins: {
-      title: {
-        display: false,
-        text: 'Hourly Rain',
-      },
-    },
-    /* animations: {
+    maintainAspectRatio: false,
+    animations: {
       tension: {
         duration: 3000,
         easing: 'linear',
-        from: 0.2,
-        to: 0.4,
-        loop: true,
+        from: 0.3,
+        to: 0.3,
+        loop: false,
       },
     },
-    maintainAspectRatio: false, */
   };
 
   const data: ChartData<'line'> = {
