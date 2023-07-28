@@ -35,10 +35,10 @@ function App() {
     canDisplay && (
       <div className="app">
         <div className="header">
-          <div style={{ fontSize: '18px' }}>
+          <div style={{ fontSize: '21px' }}>
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
-          <div style={{ fontSize: '13px' }}>
+          <div style={{ fontSize: '14px' }}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
