@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
+import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import Overlay from './components/RainChartOverlay';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
@@ -20,8 +20,8 @@ function App() {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        // fetchForecast(latitude, longitude, apiKey, setForecast),
-        fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        fetchForecast(latitude, longitude, apiKey, setForecast),
+        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
