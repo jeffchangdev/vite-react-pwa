@@ -24,11 +24,11 @@ export default function RainChart({ rainData }: ChartProps) {
       x: {
         grid: { display: false },
         ticks: { display: false },
-        border: { display: true },
+        border: { display: true, color: '#D3D3D3' },
       },
       y: {
         grid: { display: false, z: 1 },
-        border: { display: true },
+        border: { display: false },
         ticks: { display: false },
         min: 0,
         max: 24,
@@ -57,6 +57,7 @@ export default function RainChart({ rainData }: ChartProps) {
         data: minMaxify(rainData),
         fill: true,
         backgroundColor: 'rgba(197, 226, 247, 1)',
+        borderColor: '#D3D3D3',
         tension: 0.3,
         showLine: false,
         spanGaps: true,
