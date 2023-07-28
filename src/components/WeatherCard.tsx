@@ -28,9 +28,9 @@ export default function WeatherCard({
 
   return (
     <div>
-      <div key={key} className="flex-across">
+      <div key={key} className="flex-across-between">
         <div>{`${dayName}, ${displayDate} `}</div>
-        <div className="flex-across narrow-width">
+        <div className="flex-across-between narrow-width">
           <div>{`${Math.round(min)} | ${Math.round(max)} °F`}</div>
           <div className="adjust">
             <IconComponent />

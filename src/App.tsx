@@ -34,11 +34,11 @@ function App() {
   return (
     canDisplay && (
       <div className="app">
-        <div className="header">
+        <div className="flex-down-center">
           <div style={{ fontSize: '21px' }}>
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
-          <div style={{ fontSize: '14px' }}>
+          <div style={{ fontSize: '13px' }}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
@@ -46,6 +46,9 @@ function App() {
           <CurrentWeather
             temp={forecast.current.temp}
             iconID={forecast.current.weather[0].icon}
+            description={forecast.current.weather[0].description}
+            min={forecast.daily[0].temp.min}
+            max={forecast.daily[0].temp.max}
           />
         </div>
         <div className="rain-display">
