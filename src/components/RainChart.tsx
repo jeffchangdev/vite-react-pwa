@@ -44,7 +44,7 @@ export default function RainChart({ rainData }: ChartProps) {
         text: 'Hourly Rain',
       },
     },
-    animations: {
+    /* animations: {
       tension: {
         duration: 3000,
         easing: 'linear',
@@ -53,7 +53,7 @@ export default function RainChart({ rainData }: ChartProps) {
         loop: true,
       },
     },
-    maintainAspectRatio: false,
+    maintainAspectRatio: false, */
   };
 
   const data: ChartData<'line'> = {

@@ -11,17 +11,8 @@ body {
   width: 100%;
 }
 
-.primary {
-  font-weight:bold;
-}
-
 .secondary {
   font-size: 11px;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: space-between;
 }
 
 .adjust {
@@ -44,6 +35,10 @@ body {
 .weekly-container {
   width: 96%;
   padding-left: 9px;
+}
+
+.narrow-width {
+  width: 25%
 }
 
 .emphasis {
@@ -81,6 +76,11 @@ body {
 
 .overlay-container > div:nth-child(1) {
   border-top: none;
+}
+
+.flex-across {
+  display: flex;
+  justify-content:space-between;
 }
 
 .ticks-container {

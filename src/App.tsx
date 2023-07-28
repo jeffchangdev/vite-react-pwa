@@ -35,12 +35,14 @@ function App() {
     canDisplay && (
       <div className="app">
         <div className="header">
-          <div>{`${locale[0].local_names.en}, ${locale[0].state}`}</div>
-          <div className="secondary">
+          <div style={{ fontSize: '18px' }}>
+            {`${locale[0].local_names.en}, ${locale[0].state}`}
+          </div>
+          <div style={{ fontSize: '13px' }}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
-        <div className="primary">
+        <div>
           <CurrentWeather
             temp={forecast.current.temp}
             iconID={forecast.current.weather[0].icon}
