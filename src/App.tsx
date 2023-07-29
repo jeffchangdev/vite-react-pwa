@@ -19,7 +19,7 @@ function App() {
   const [forecast, setForecast] = useState<Forecast>();
   const [locale, setLocale] = useState<Locale[]>();
 
-  const apiKey = process.env.ONECALL_API_KEY as string;
+  const apiKey = '3853991e651353fcbcf2e48d3efa1bb8';
 
   useEffect(() => {
     const fetchData = async () => {
