@@ -48,7 +48,7 @@ export function getIcon(id: string) {
   return iconMap[id];
 }
 
-export function rainingNow(arr: MinutelyForecast[]) {
+export function isRainingNow(arr: MinutelyForecast[]) {
   for (const { precipitation } of arr) {
     if (precipitation > 0) return true;
   }
@@ -56,7 +56,7 @@ export function rainingNow(arr: MinutelyForecast[]) {
   return false;
 }
 
-export function checkIfRainLater(dt: number, arr: HourlyForecast[]) {
+export function isRainingLater(dt: number, arr: HourlyForecast[]) {
   for (const hourForecast of arr) {
     // arr contains full 24 hours. if current time < the hour then skip
     if (hourForecast.dt < dt) continue;
@@ -77,4 +77,13 @@ export function convertUnixTimeToLocal(dt: number) {
   const minute = dateObject.getMinutes();
 
   return { month, day, hour, minute };
+}
+
+export function displayHourMinute(dt: number) {
+  const { hour, minute } = convertUnixTimeToLocal(dt);
+  const displayHour = hour % 12 === 0 ? 12 : hour % 12;
+  const displayMinute = minute < 10 ? `0${minute}` : minute;
+  const meridiem = hour > 12 ? 'PM' : 'AM';
+
+  return `${displayHour}:${displayMinute} ${meridiem}`;
 }

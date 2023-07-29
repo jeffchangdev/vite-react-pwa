@@ -1,27 +1,33 @@
 import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
+import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import Overlay from './components/RainChartOverlay';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyForecastList from './components/WeeklyForecastList';
 import RainChartTicks from './components/RachChartTicks';
 import LastUpdated from './components/LastUpdatedLabel';
+import {
+  isRainingNow,
+  isRainingLater,
+  displayHourMinute,
+} from './utils/utilities';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
   const [forecast, setForecast] = useState<Forecast>();
   const [locale, setLocale] = useState<Locale[]>();
 
-  const apiKey = '3853991e651353fcbcf2e48d3efa1bb8';
+  const apiKey = process.env.ONECALL_API_KEY as string;
 
   useEffect(() => {
     const fetchData = async () => {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        // fetchForecast(latitude, longitude, apiKey, setForecast),
-        fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        fetchForecast(latitude, longitude, apiKey, setForecast),
+        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
@@ -30,6 +36,18 @@ function App() {
   }, []);
 
   const canDisplay = location && forecast && locale;
+
+  // eslint-disable-next-line one-var
+  let currentTime, isRaining, willRain, message;
+
+  if (canDisplay) {
+    currentTime = forecast.current.dt;
+    isRaining = isRainingNow(forecast.minutely);
+    willRain = isRainingLater(currentTime, forecast.hourly);
+    message = willRain
+      ? `rain forecasted to start at ${displayHourMinute(willRain as number)}`
+      : 'no rain for the rest of the day';
+  }
 
   return (
     canDisplay && (
@@ -54,8 +72,19 @@ function App() {
         <div className="rain-display">
           <div className="chart-container">
             <RainChart rainData={forecast.minutely} />
-            <div className="overlay-container">
+            <div
+              className={classNames('overlay-container', { hide: !isRaining })}
+            >
               <Overlay />
+            </div>
+          </div>
+          <div className={classNames('info-container', { hide: isRaining })}>
+            <div
+              style={{
+                paddingBottom: '10%',
+              }}
+            >
+              {message}
             </div>
           </div>
           <div className="ticks-container">

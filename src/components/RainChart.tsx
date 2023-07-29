@@ -24,7 +24,7 @@ export default function RainChart({ rainData }: ChartProps) {
       x: {
         grid: { display: false },
         ticks: { display: false },
-        border: { display: true, color: '#D3D3D3' },
+        border: { display: true },
       },
       y: {
         grid: { display: false, z: 1 },
