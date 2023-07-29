@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
+import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
 import Overlay from './components/RainChartOverlay';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
@@ -12,6 +12,7 @@ import {
   isRainingNow,
   isRainingLater,
   displayHourMinute,
+  convertUnixTimeToLocal,
 } from './utils/utilities';
 
 function App() {
@@ -26,12 +27,11 @@ function App() {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        fetchForecast(latitude, longitude, apiKey, setForecast),
-        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        // fetchForecast(latitude, longitude, apiKey, setForecast),
+        fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
-    console.log('log: ', location, forecast, locale);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -44,9 +44,19 @@ function App() {
     currentTime = forecast.current.dt;
     isRaining = isRainingNow(forecast.minutely);
     willRain = isRainingLater(currentTime, forecast.hourly);
-    message = willRain
-      ? `rain forecasted to start at ${displayHourMinute(willRain as number)}`
-      : 'no rain for the rest of the day';
+
+    const currentDay = convertUnixTimeToLocal(currentTime).day;
+    const rainDay = willRain
+      ? convertUnixTimeToLocal(willRain as number).day
+      : 0;
+
+    console.log('currentday and rainday ', currentDay, rainDay);
+    console.log('willRain ', willRain);
+
+    message =
+      willRain && rainDay === currentDay
+        ? `rain forecasted around ${displayHourMinute(willRain as number)}`
+        : 'no rain for the rest of the day';
   }
 
   return (

@@ -45,6 +45,7 @@ export const fetchForecast = async (
   );
   const jsonData = await response.json();
   console.log('forecast object is: ', jsonData);
+  console.log('current time is ', jsonData.current.dt);
   setState(jsonData);
 };
 

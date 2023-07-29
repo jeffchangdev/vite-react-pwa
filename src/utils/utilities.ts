@@ -11,6 +11,26 @@ import {
 } from 'react-icons/fa6';
 import { HourlyForecast, MinutelyForecast } from '../types/types';
 
+export function convertUnixTimeToLocal(dt: number) {
+  const milliseconds = dt * 1000;
+  const dateObject = new Date(milliseconds);
+  const month = dateObject.toLocaleString('en-US', { month: 'long' });
+  const day = dateObject.getDate();
+  const hour = dateObject.getHours();
+  const minute = dateObject.getMinutes();
+
+  return { month, day, hour, minute };
+}
+
+export function displayHourMinute(dt: number) {
+  const { hour, minute } = convertUnixTimeToLocal(dt);
+  const displayHour = hour % 12 === 0 ? 12 : hour % 12;
+  const displayMinute = minute < 10 ? `0${minute}` : minute;
+  const meridiem = hour > 12 ? 'PM' : 'AM';
+
+  return `${displayHour}:${displayMinute} ${meridiem}`;
+}
+
 export function minMaxify(arr: MinutelyForecast[]) {
   const data = arr.map(({ precipitation }) => precipitation);
   const localMinMaxArr = [data[0]];
@@ -58,32 +78,13 @@ export function isRainingNow(arr: MinutelyForecast[]) {
 
 export function isRainingLater(dt: number, arr: HourlyForecast[]) {
   for (const hourForecast of arr) {
-    // arr contains full 24 hours. if current time < the hour then skip
+    // arr contains previous + next 47 hours. if the hour in arr < current time, skip
     if (hourForecast.dt < dt) continue;
 
-    const iconNum = Number(hourForecast.weather[0].icon);
+    const iconString = hourForecast.weather[0].icon;
+    const iconNum = Number(iconString.substring(0, 2));
     if (iconNum > 8 && iconNum < 14) return hourForecast.dt;
   }
 
   return false;
-}
-
-export function convertUnixTimeToLocal(dt: number) {
-  const milliseconds = dt * 1000;
-  const dateObject = new Date(milliseconds);
-  const month = dateObject.toLocaleString('en-US', { month: 'long' });
-  const day = dateObject.getDate();
-  const hour = dateObject.getHours();
-  const minute = dateObject.getMinutes();
-
-  return { month, day, hour, minute };
-}
-
-export function displayHourMinute(dt: number) {
-  const { hour, minute } = convertUnixTimeToLocal(dt);
-  const displayHour = hour % 12 === 0 ? 12 : hour % 12;
-  const displayMinute = minute < 10 ? `0${minute}` : minute;
-  const meridiem = hour > 12 ? 'PM' : 'AM';
-
-  return `${displayHour}:${displayMinute} ${meridiem}`;
 }
