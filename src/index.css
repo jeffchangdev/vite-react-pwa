@@ -68,13 +68,15 @@ body {
   border-top: 1px solid #D3D3D3;
   flex-grow: 1;
   text-align: left;
-  padding-top: 3.5%;
+  height: 33.3%;
+  padding-top: 3%;
   padding-left: 0%;
 }
 
 .overlay-container > div:nth-child(1) {
   border-top: none;
 }
+
 
 .flex-across-between {
   display: flex;
