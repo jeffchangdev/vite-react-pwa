@@ -44,7 +44,7 @@ export default function CurrentWeather({
         style={{
           fontSize: '70px',
           marginTop: '-25px',
-          color: '#0059b3',
+          color: '#276BD0',
         }}
       >
         <div>{Math.round(temp)}</div>
