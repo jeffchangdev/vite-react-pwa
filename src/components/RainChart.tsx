@@ -18,7 +18,7 @@ type ChartProps = {
   rainData: MinutelyForecast[];
 };
 
-export default function RainChart({ rainData }: ChartProps) {
+export default function RainChart2({ rainData }: ChartProps) {
   const options: ChartOptions<'line'> = {
     scales: {
       x: {
@@ -27,9 +27,20 @@ export default function RainChart({ rainData }: ChartProps) {
         border: { display: true },
       },
       y: {
-        grid: { display: false, z: 1 },
+        grid: {
+          display: true,
+          z: 2,
+          drawTicks: false,
+        },
         border: { display: false },
-        ticks: { display: false },
+        ticks: {
+          display: false,
+          stepSize: 8,
+          callback(value) {
+            if (value === 24) return undefined;
+            return value;
+          },
+        },
         min: 0,
         max: 24,
       },

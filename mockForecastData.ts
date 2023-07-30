@@ -1,5 +1,4 @@
-
-/*
+//for rain now
 const mockForecastData = {
   lat: 40.7595,
   lon: -73.9672,
@@ -1715,8 +1714,9 @@ const mockForecastData = {
     },
   ],
 };
-*/
 
+//for rain later
+/*
 const mockForecastData = {
   "lat": 40.7595,
   "lon": -73.9672,
@@ -3437,6 +3437,6 @@ const mockForecastData = {
     }
   ]
 }
-
+*/
 
 export default mockForecastData;
