@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { GeoLocation, Locale, Forecast } from './types/types';
-import { fetchGeoLocation, fetchLocale, fetchMockForecast } from './api/api';
-import Overlay from './components/RainChartOverlay';
+import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import RainChart from './components/RainChart';
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyForecastList from './components/WeeklyForecastList';
@@ -27,8 +26,8 @@ function App() {
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
-        // fetchForecast(latitude, longitude, apiKey, setForecast),
-        fetchMockForecast(latitude, longitude, apiKey, setForecast),
+        fetchForecast(latitude, longitude, apiKey, setForecast),
+        // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
     };
     fetchData();
@@ -66,7 +65,7 @@ function App() {
           <div style={{ fontSize: '21px', color: 'black', fontWeight: '500' }}>
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
-          <div style={{ fontSize: '13px' }}>
+          <div style={{ fontSize: '12px', marginTop: '-4px'}}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
@@ -81,12 +80,7 @@ function App() {
         </div>
         <div className="rain-display">
           <div className="chart-container">
-            <RainChart rainData={forecast.minutely} />
-            <div
-              className={classNames('overlay-container', { hide: !isRaining })}
-            >
-              <Overlay />
-            </div>
+            <RainChart rainData={forecast.minutely} isRaining={isRaining} />
           </div>
           <div className={classNames('info-container', { hide: isRaining })}>
             <div

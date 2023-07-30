@@ -18,8 +18,8 @@ body {
   display: inline;
   color: gray;
   margin-left: 5px;
-  margin-top: 2px;
-  font-size: 15px;
+  margin-top: 1px;
+  font-size: 16px;
 }
 
 .flex-down {
@@ -38,7 +38,7 @@ body {
   width: 96.5%;
   padding-left: 8px;
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .narrow-width {
@@ -51,29 +51,6 @@ body {
   height: 20vh;
   padding-right: 2%;
   margin-top: 35px;
-}
-
-.overlay-container {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 2.5%;
-  left: 2%;
-  width: 94.4%;
-  height: 95%;
-  z-index: 1;
-  justify-content: center;
-}
-
-.overlay-container > div {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 20px;
-  color: #5e5e5e;
-  flex-grow: 1;
-  text-align: left;
-  height: 33.3%;
-  padding-top: 3%;
-  padding-left: 0%;
 }
 
 .flex-across-between {

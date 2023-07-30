@@ -22,16 +22,16 @@ export default function CurrentWeather({
       <div
         className="flex-across-center"
         style={{
-          marginTop: '10%',
+          marginTop: '13%',
         }}
       >
-        <div style={{ fontSize: '15px', color: 'black' }}>
+        <div style={{ fontSize: '16px', color: 'black' }}>
           {`${Math.round(min)} | ${Math.round(max)}`}
         </div>
         <div
           style={{
             marginLeft: '5px',
-            marginTop: '-6px',
+            marginTop: '-8px',
             color: 'gray',
             fontSize: '25px',
           }}
@@ -59,7 +59,7 @@ export default function CurrentWeather({
             width: '45%',
             overflowWrap: 'break-word',
             textAlign: 'center',
-            marginTop: '-20px',
+            marginTop: '-22px',
           }}
         >
           {description}

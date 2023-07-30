@@ -16,9 +16,10 @@ ChartJS.register(Filler, CategoryScale, LinearScale, PointElement, LineElement);
 
 type ChartProps = {
   rainData: MinutelyForecast[];
+  isRaining?: boolean;
 };
 
-export default function RainChart2({ rainData }: ChartProps) {
+export default function RainChart({ rainData, isRaining }: ChartProps) {
   const options: ChartOptions<'line'> = {
     scales: {
       x: {
@@ -28,18 +29,26 @@ export default function RainChart2({ rainData }: ChartProps) {
       },
       y: {
         grid: {
-          display: true,
-          z: 2,
+          display: isRaining,
+          z: 1,
           drawTicks: false,
         },
         border: { display: false },
         ticks: {
-          display: false,
+          display: true,
           stepSize: 8,
           callback(value) {
+            if (isRaining === false) return undefined;
+            if (value === 0) return 'L';
+            if (value === 8) return 'M';
+            if (value === 16) return 'H';
             if (value === 24) return undefined;
-            return value;
+            return undefined;
           },
+          font: { size: 15 },
+          mirror: true,
+          labelOffset: -24,
+          z: 1,
         },
         min: 0,
         max: 24,
@@ -50,15 +59,6 @@ export default function RainChart2({ rainData }: ChartProps) {
     },
     responsive: true,
     maintainAspectRatio: false,
-    animations: {
-      tension: {
-        duration: 3000,
-        easing: 'linear',
-        from: 0.3,
-        to: 0.3,
-        loop: false,
-      },
-    },
   };
 
   const data: ChartData<'line'> = {
@@ -78,3 +78,7 @@ export default function RainChart2({ rainData }: ChartProps) {
 
   return <Line options={options} data={data} />;
 }
+
+RainChart.defaultProps = {
+  isRaining: false,
+};
