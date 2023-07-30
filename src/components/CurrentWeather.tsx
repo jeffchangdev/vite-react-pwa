@@ -42,7 +42,7 @@ export default function CurrentWeather({
       <div
         className="flex-across-center"
         style={{
-          fontSize: '70px',
+          fontSize: '72px',
           marginTop: '-25px',
           color: '#0059b3',
         }}
@@ -55,7 +55,7 @@ export default function CurrentWeather({
         <div
           style={{
             position: 'relative',
-            fontSize: '14px',
+            fontSize: '16px',
             width: '45%',
             overflowWrap: 'break-word',
             textAlign: 'center',
