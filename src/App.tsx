@@ -65,7 +65,7 @@ function App() {
           <div style={{ fontSize: '21px', color: 'black', fontWeight: '500' }}>
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
-          <div style={{ fontSize: '12px', marginTop: '-4px'}}>
+          <div style={{ fontSize: '12px', marginTop: '-4px' }}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
