@@ -34,7 +34,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // test comment
+  // test comment here
+  
   const canDisplay = location && forecast && locale;
 
   // eslint-disable-next-line one-var
