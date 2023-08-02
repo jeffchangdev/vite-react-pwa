@@ -64,7 +64,14 @@ function App() {
     canDisplay && (
       <div className="app">
         <div className="flex-down-center">
-          <div style={{ fontSize: '21px', color: 'black', fontWeight: '500' }}>
+          <div
+            style={{
+              fontSize: '21px',
+              color: 'black',
+              fontWeight: '500',
+              marginTop: '10px',
+            }}
+          >
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
           <div style={{ fontSize: '12px', marginTop: '-3px' }}>
