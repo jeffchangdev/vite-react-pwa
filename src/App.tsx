@@ -13,6 +13,8 @@ import {
   displayHourMinute,
   convertUnixTimeToLocal,
 } from './utils/utilities';
+import MakeRainButton from './components/MakeRainButton';
+import mockRainData from '../mockRainData';
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
@@ -55,7 +57,7 @@ function App() {
     message =
       willRain && rainDay === currentDay
         ? `rain forecasted around ${displayHourMinute(willRain as number)}`
-        : 'no rain for the rest of the day';
+        : 'No rain for the rest of the day';
   }
 
   return (
@@ -65,7 +67,7 @@ function App() {
           <div style={{ fontSize: '21px', color: 'black', fontWeight: '500' }}>
             {`${locale[0].local_names.en}, ${locale[0].state}`}
           </div>
-          <div style={{ fontSize: '12px', marginTop: '-4px' }}>
+          <div style={{ fontSize: '12px', marginTop: '-3px' }}>
             <LastUpdated dt={forecast.current.dt} />
           </div>
         </div>
@@ -97,6 +99,13 @@ function App() {
         </div>
         <div className="weekly-container">
           <WeeklyForecastList arr={forecast.daily} />
+        </div>
+        <div className="flex-down-center">
+          <MakeRainButton
+            setState={setForecast}
+            forecast={forecast}
+            mockRainData={mockRainData}
+          />
         </div>
       </div>
     )

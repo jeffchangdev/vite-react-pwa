@@ -26,6 +26,7 @@ module.exports = {
   ignorePatterns: [
     'vite.config.ts',
     'mockForecastData.ts',
+    'mockRainData.ts',
     'node_modules/',
     'dev-dist/',
   ],

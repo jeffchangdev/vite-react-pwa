@@ -1,6 +1,8 @@
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .app {
@@ -47,10 +49,10 @@ body {
 
 .chart-container {
   position: relative;
-  width: 100%;
+  width: 99%;
   height: 20vh;
-  padding-right: 2%;
   margin-top: 35px;
+  margin-left: 1%;
 }
 
 .flex-across-between {
