@@ -71,9 +71,9 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
         data: minMaxify(rainData),
         fill: true,
         backgroundColor: gradient || 'rgba(197, 226, 247, 1)',
-        borderColor: '#D3D3D3',
+        borderColor: 'rgba(197, 226, 247, 1)',
         tension: 0.3,
-        showLine: false,
+        showLine: true,
         spanGaps: true,
       },
     ],
@@ -86,7 +86,7 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
     const linearGradient = ctx?.createLinearGradient(0, 25, 0, 300);
 
     if (linearGradient) {
-      linearGradient.addColorStop(0, 'rgba(197, 226, 247, .95)');
+      linearGradient.addColorStop(0, 'rgba(197, 226, 247, .9)');
       linearGradient.addColorStop(0.35, 'rgba(197, 226, 247, .7)');
       linearGradient.addColorStop(1, 'rgba(197, 226, 247, 0)');
 
