@@ -9,6 +9,7 @@ import {
   ChartOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useEffect, useState } from 'react';
 import { MinutelyForecast } from '../types/types';
 import { minMaxify } from '../utils/utilities';
 
@@ -20,6 +21,8 @@ type ChartProps = {
 };
 
 export default function RainChart({ rainData, isRaining }: ChartProps) {
+  const [gradient, setGradient] = useState<CanvasGradient>();
+
   const options: ChartOptions<'line'> = {
     scales: {
       x: {
@@ -67,7 +70,7 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
       {
         data: minMaxify(rainData),
         fill: true,
-        backgroundColor: 'rgba(197, 226, 247, 1)',
+        backgroundColor: gradient || 'rgba(197, 226, 247, 1)',
         borderColor: '#D3D3D3',
         tension: 0.3,
         showLine: false,
@@ -76,7 +79,22 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
     ],
   };
 
-  return <Line options={options} data={data} />;
+  useEffect(() => {
+    // eslint-disable-next-line prefer-destructuring
+    const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d');
+    const linearGradient = ctx?.createLinearGradient(0, 25, 0, 300);
+
+    if (linearGradient) {
+      linearGradient.addColorStop(0, 'rgba(197, 226, 247, .95)');
+      linearGradient.addColorStop(0.35, 'rgba(197, 226, 247, .7)');
+      linearGradient.addColorStop(1, 'rgba(197, 226, 247, 0)');
+
+      setGradient(linearGradient);
+    }
+  }, []);
+
+  return <Line id="myChart" options={options} data={data} />;
 }
 
 RainChart.defaultProps = {
