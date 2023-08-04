@@ -26,6 +26,7 @@ export function displayHourMinute(dt: number) {
   const { hour, minute } = convertUnixTimeToLocal(dt);
   const displayHour = hour % 12 === 0 ? 12 : hour % 12;
   const displayMinute = minute < 10 ? `0${minute}` : minute;
+  
   const meridiem = hour >= 12 ? 'PM' : 'AM';
 
   return `${displayHour}:${displayMinute} ${meridiem}`;
