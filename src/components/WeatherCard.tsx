@@ -27,10 +27,10 @@ export default function WeatherCard({
   const displayDate = `${month} ${day}`;
 
   return (
-    <div>
+    <div style={{fontSize: '14px'}}>
       <div key={key} className="flex-across-between">
         <div>{`${dayName}, ${displayDate} `}</div>
-        <div className="flex-across-between narrow-width no-wrap overflow-hidden">
+        <div className="flex-across-between">
           <div>{`${Math.round(min)} | ${Math.round(max)} °F`}</div>
           <div className="adjust">
             <IconComponent />

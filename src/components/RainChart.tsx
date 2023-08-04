@@ -73,7 +73,7 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
         backgroundColor: gradient || 'rgba(197, 226, 247, 1)',
         borderColor: 'rgba(197, 226, 247, 1)',
         tension: 0.3,
-        showLine: true,
+        showLine: false,
         spanGaps: true,
       },
     ],

@@ -15,5 +15,9 @@ export default function WeeklyForecastList({ arr }: WeeklyForecastListProps) {
     );
   });
 
-  return <div className="flex-down">{list}</div>;
+  return (
+    <div className="flex-down" style={{ marginTop: '8px' }}>
+      {list}
+    </div>
+  );
 }
