@@ -104,7 +104,7 @@ function App() {
             <RainChartTicks />
           </div>
         </div>
-        <div className="weekly-container">
+        <div>
           <WeeklyForecastList arr={forecast.daily} />
         </div>
         <div className="flex-down-center">

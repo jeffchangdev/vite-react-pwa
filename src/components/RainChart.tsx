@@ -89,7 +89,6 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
       linearGradient.addColorStop(0, 'rgba(197, 226, 247, .95)');
       linearGradient.addColorStop(0.35, 'rgba(197, 226, 247, .7)');
       linearGradient.addColorStop(1, 'rgba(197, 226, 247, 0)');
-
       setGradient(linearGradient);
     }
   }, []);
