@@ -27,7 +27,7 @@ export default function WeatherCard({
   const displayDate = `${month} ${day}`;
 
   return (
-    <div style={{fontSize: '14px'}}>
+    <div style={{ fontSize: '14px' }}>
       <div key={key} className="flex-across-between">
         <div>{`${dayName}, ${displayDate} `}</div>
         <div className="flex-across-between">
