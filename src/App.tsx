@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { Loading } from 'react-loading-dot';
 import { GeoLocation, Locale, Forecast } from './types/types';
 import { fetchGeoLocation, fetchLocale, fetchForecast } from './api/api';
 import RainChart from './components/RainChart';
@@ -15,26 +16,57 @@ import {
 } from './utils/utilities';
 import MakeRainButton from './components/MakeRainButton';
 import mockRainData from '../mockRainData';
+import MakeStatusButton from './components/MakeStatusButton';
+
+// app status: "loading" -> (maybe) "error" -> "loaded"
 
 function App() {
   const [location, setLocation] = useState<GeoLocation>();
   const [forecast, setForecast] = useState<Forecast>();
   const [locale, setLocale] = useState<Locale[]>();
+  const [status, setStatus] = useState<string>('loading');
 
   const apiKey = '3853991e651353fcbcf2e48d3efa1bb8';
 
   useEffect(() => {
     const fetchData = async () => {
+      setStatus('loading');
       const { latitude, longitude } = await fetchGeoLocation(setLocation);
       await Promise.all([
         fetchLocale(latitude, longitude, apiKey, setLocale),
         fetchForecast(latitude, longitude, apiKey, setForecast),
         // fetchMockForecast(latitude, longitude, apiKey, setForecast),
       ]);
+      setStatus('loaded');
     };
-    fetchData();
+
+    try {
+      fetchData();
+    } catch (error) {
+      console.log('some error occurred with open weather APIs', error);
+      setStatus('error');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (status !== 'loaded') {
+    return (
+      <div className="app">
+        <div className="absolute-center">
+          {status === 'loading' && (
+            <div style={{ marginBottom: '195px' }}>
+              <Loading size="1rem" background="rgb(0,89,179)" margin=".2rem" />
+            </div>
+          )}
+          {status === 'error' && (
+            <div style={{ marginBottom: '195px' }}>
+              Service error. Refresh or try again later.
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   const canDisplay = location && forecast && locale;
 
@@ -114,6 +146,12 @@ function App() {
             mockRainData={mockRainData}
           />
         </div>
+        {false && (
+          <div>
+            <MakeStatusButton setState={setStatus} status="loading" />
+            <MakeStatusButton setState={setStatus} status="error" />
+          </div>
+        )}
       </div>
     )
   );
