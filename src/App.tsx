@@ -54,8 +54,13 @@ function App() {
       <div className="app">
         <div className="absolute-center">
           {status === 'loading' && (
-            <div style={{ marginBottom: '195px' }}>
-              <Loading size="1rem" background="rgb(0,89,179)" margin=".2rem" />
+            <div className="fade-in-element" style={{ marginBottom: '195px' }}>
+              <Loading
+                size=".8rem"
+                background="rgb(0,89,179)"
+                margin=".2rem"
+                duration=".8s"
+              />
             </div>
           )}
           {status === 'error' && (
@@ -146,7 +151,7 @@ function App() {
             mockRainData={mockRainData}
           />
         </div>
-        {false && (
+        {true && (
           <div>
             <MakeStatusButton setState={setStatus} status="loading" />
             <MakeStatusButton setState={setStatus} status="error" />
