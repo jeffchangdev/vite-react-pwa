@@ -151,7 +151,7 @@ function App() {
             mockRainData={mockRainData}
           />
         </div>
-        {true && (
+        {false && (
           <div>
             <MakeStatusButton setState={setStatus} status="loading" />
             <MakeStatusButton setState={setStatus} status="error" />
