@@ -56,7 +56,7 @@ export default function CurrentWeather({
           style={{
             position: 'relative',
             fontSize: '16px',
-            width: '45%',
+            width: '75%',
             overflowWrap: 'break-word',
             textAlign: 'center',
             marginTop: '-22px',

@@ -1,248 +1,248 @@
 const minutely = [
   {
-    "dt": 1690050060,
-    "precipitation": 9.285
+    "dt": 1691698680,
+    "precipitation": 3.3531
   },
   {
-    "dt": 1690050120,
-    "precipitation": 8.5848
+    "dt": 1691698740,
+    "precipitation": 3.2553
   },
   {
-    "dt": 1690050180,
-    "precipitation": 7.8846
-  },
-  {
-    "dt": 1690050240,
-    "precipitation": 7.1844
-  },
-  {
-    "dt": 1690050300,
-    "precipitation": 6.4842
-  },
-  {
-    "dt": 1690050360,
-    "precipitation": 7.8505
-  },
-  {
-    "dt": 1690050420,
-    "precipitation": 9.2167
-  },
-  {
-    "dt": 1690050480,
-    "precipitation": 10.583
-  },
-  {
-    "dt": 1690050540,
-    "precipitation": 11.9492
-  },
-  {
-    "dt": 1690050600,
-    "precipitation": 13.3155
-  },
-  {
-    "dt": 1690050660,
-    "precipitation": 13.7277
-  },
-  {
-    "dt": 1690050720,
-    "precipitation": 14.1399
-  },
-  {
-    "dt": 1690050780,
-    "precipitation": 14.5521
-  },
-  {
-    "dt": 1690050840,
-    "precipitation": 14.9643
-  },
-  {
-    "dt": 1690050900,
-    "precipitation": 15.3765
-  },
-  {
-    "dt": 1690050960,
-    "precipitation": 17.0369
-  },
-  {
-    "dt": 1690051020,
-    "precipitation": 18.6973
-  },
-  {
-    "dt": 1690051080,
-    "precipitation": 20.3578
-  },
-  {
-    "dt": 1690051140,
-    "precipitation": 22.0182
-  },
-  {
-    "dt": 1690051200,
-    "precipitation": 23.6786
-  },
-  {
-    "dt": 1690051260,
-    "precipitation": 24.4116
-  },
-  {
-    "dt": 1690051320,
-    "precipitation": 25.1446
-  },
-  {
-    "dt": 1690051380,
-    "precipitation": 25.8776
-  },
-  {
-    "dt": 1690051440,
-    "precipitation": 26.6106
-  },
-  {
-    "dt": 1690051500,
-    "precipitation": 27.3436
-  },
-  {
-    "dt": 1690051560,
-    "precipitation": 29.1676
-  },
-  {
-    "dt": 1690051620,
-    "precipitation": 30.9915
-  },
-  {
-    "dt": 1690051680,
-    "precipitation": 32.8154
-  },
-  {
-    "dt": 1690051740,
-    "precipitation": 34.6394
-  },
-  {
-    "dt": 1690051800,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690051860,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690051920,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690051980,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690052040,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690052100,
-    "precipitation": 36.4633
-  },
-  {
-    "dt": 1690052160,
-    "precipitation": 35.4858
-  },
-  {
-    "dt": 1690052220,
-    "precipitation": 34.5084
-  },
-  {
-    "dt": 1690052280,
-    "precipitation": 33.5309
-  },
-  {
-    "dt": 1690052340,
-    "precipitation": 32.5534
-  },
-  {
-    "dt": 1690052400,
-    "precipitation": 31.5759
-  },
-  {
-    "dt": 1690052460,
-    "precipitation": 27.9238
-  },
-  {
-    "dt": 1690052520,
-    "precipitation": 24.2717
-  },
-  {
-    "dt": 1690052580,
-    "precipitation": 20.6197
-  },
-  {
-    "dt": 1690052640,
-    "precipitation": 16.9676
-  },
-  {
-    "dt": 1690052700,
-    "precipitation": 13.3155
-  },
-  {
-    "dt": 1690052760,
-    "precipitation": 11.2839
-  },
-  {
-    "dt": 1690052820,
-    "precipitation": 9.2523
-  },
-  {
-    "dt": 1690052880,
-    "precipitation": 7.2207
-  },
-  {
-    "dt": 1690052940,
-    "precipitation": 5.1892
-  },
-  {
-    "dt": 1690053000,
+    "dt": 1691698800,
     "precipitation": 3.1576
   },
   {
-    "dt": 1690053060,
-    "precipitation": 4.8322
+    "dt": 1691698860,
+    "precipitation": 2.8812
   },
   {
-    "dt": 1690053120,
-    "precipitation": 6.5068
+    "dt": 1691698920,
+    "precipitation": 2.6048
   },
   {
-    "dt": 1690053180,
-    "precipitation": 8.1815
+    "dt": 1691698980,
+    "precipitation": 2.3284
   },
   {
-    "dt": 1690053240,
-    "precipitation": 9.8561
+    "dt": 1691699040,
+    "precipitation": 2.052
   },
   {
-    "dt": 1690053300,
-    "precipitation": 11.5307
+    "dt": 1691699100,
+    "precipitation": 1.7756
   },
   {
-    "dt": 1690053360,
-    "precipitation": 15.5398
+    "dt": 1691699160,
+    "precipitation": 1.6868
   },
   {
-    "dt": 1690053420,
-    "precipitation": 19.5488
+    "dt": 1691699220,
+    "precipitation": 1.598
   },
   {
-    "dt": 1690053480,
-    "precipitation": 23.5578
+    "dt": 1691699280,
+    "precipitation": 1.5092
   },
   {
-    "dt": 1690053540,
-    "precipitation": 27.5669
+    "dt": 1691699340,
+    "precipitation": 1.4204
   },
   {
-    "dt": 1690053600,
-    "precipitation": 31.5759
+    "dt": 1691699400,
+    "precipitation": 1.3315
   },
   {
-    "dt": 1690053660,
-    "precipitation": 28.812
+    "dt": 1691699460,
+    "precipitation": 1.4204
   },
-]
+  {
+    "dt": 1691699520,
+    "precipitation": 1.5092
+  },
+  {
+    "dt": 1691699580,
+    "precipitation": 1.598
+  },
+  {
+    "dt": 1691699640,
+    "precipitation": 1.6868
+  },
+  {
+    "dt": 1691699700,
+    "precipitation": 1.7756
+  },
+  {
+    "dt": 1691699760,
+    "precipitation": 2.052
+  },
+  {
+    "dt": 1691699820,
+    "precipitation": 2.3284
+  },
+  {
+    "dt": 1691699880,
+    "precipitation": 2.6048
+  },
+  {
+    "dt": 1691699940,
+    "precipitation": 2.8812
+  },
+  {
+    "dt": 1691700000,
+    "precipitation": 3.1576
+  },
+  {
+    "dt": 1691700060,
+    "precipitation": 3.0729
+  },
+  {
+    "dt": 1691700120,
+    "precipitation": 2.9883
+  },
+  {
+    "dt": 1691700180,
+    "precipitation": 2.9037
+  },
+  {
+    "dt": 1691700240,
+    "precipitation": 2.819
+  },
+  {
+    "dt": 1691700300,
+    "precipitation": 2.7344
+  },
+  {
+    "dt": 1691700360,
+    "precipitation": 4.1845
+  },
+  {
+    "dt": 1691700420,
+    "precipitation": 5.6347
+  },
+  {
+    "dt": 1691700480,
+    "precipitation": 7.0849
+  },
+  {
+    "dt": 1691700540,
+    "precipitation": 8.535
+  },
+  {
+    "dt": 1691700600,
+    "precipitation": 9.9852
+  },
+  {
+    "dt": 1691700660,
+    "precipitation": 9.7175
+  },
+  {
+    "dt": 1691700720,
+    "precipitation": 9.4498
+  },
+  {
+    "dt": 1691700780,
+    "precipitation": 9.1822
+  },
+  {
+    "dt": 1691700840,
+    "precipitation": 8.9145
+  },
+  {
+    "dt": 1691700900,
+    "precipitation": 8.6468
+  },
+  {
+    "dt": 1691700960,
+    "precipitation": 7.4643
+  },
+  {
+    "dt": 1691701020,
+    "precipitation": 6.2818
+  },
+  {
+    "dt": 1691701080,
+    "precipitation": 5.0993
+  },
+  {
+    "dt": 1691701140,
+    "precipitation": 3.9169
+  },
+  {
+    "dt": 1691701200,
+    "precipitation": 2.7344
+  },
+  {
+    "dt": 1691701260,
+    "precipitation": 2.4181
+  },
+  {
+    "dt": 1691701320,
+    "precipitation": 2.1018
+  },
+  {
+    "dt": 1691701380,
+    "precipitation": 1.7856
+  },
+  {
+    "dt": 1691701440,
+    "precipitation": 1.4693
+  },
+  {
+    "dt": 1691701500,
+    "precipitation": 1.1531
+  },
+  {
+    "dt": 1691701560,
+    "precipitation": 0.958
+  },
+  {
+    "dt": 1691701620,
+    "precipitation": 0.7629
+  },
+  {
+    "dt": 1691701680,
+    "precipitation": 0.5678
+  },
+  {
+    "dt": 1691701740,
+    "precipitation": 0.3727
+  },
+  {
+    "dt": 1691701800,
+    "precipitation": 0.1776
+  },
+  {
+    "dt": 1691701860,
+    "precipitation": 0.1429
+  },
+  {
+    "dt": 1691701920,
+    "precipitation": 0.1082
+  },
+  {
+    "dt": 1691701980,
+    "precipitation": 0
+  },
+  {
+    "dt": 1691702040,
+    "precipitation": 0
+  },
+  {
+    "dt": 1691702100,
+    "precipitation": 0
+  },
+  {
+    "dt": 1691702160,
+    "precipitation": 0
+  },
+  {
+    "dt": 1691702220,
+    "precipitation": 0
+  },
+  {
+    "dt": 1691702280,
+    "precipitation": 0
+  }
+];
 
 export default minutely
