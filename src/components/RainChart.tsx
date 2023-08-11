@@ -21,6 +21,7 @@ type ChartProps = {
 };
 
 export default function RainChart({ rainData, isRaining }: ChartProps) {
+  console.log('rain chart data: ', rainData);
   const [gradient, setGradient] = useState<CanvasGradient>();
 
   const options: ChartOptions<'line'> = {
@@ -39,13 +40,13 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
         border: { display: false },
         ticks: {
           display: true,
-          stepSize: 8,
+          stepSize: 3,
           callback(value) {
             if (isRaining === false) return undefined;
             if (value === 0) return 'L';
-            if (value === 8) return 'M';
-            if (value === 16) return 'H';
-            if (value === 24) return undefined;
+            if (value === 3) return 'M';
+            if (value === 6) return 'H';
+            if (value === 9) return undefined;
             return undefined;
           },
           font: { size: 15 },
@@ -54,7 +55,7 @@ export default function RainChart({ rainData, isRaining }: ChartProps) {
           z: 1,
         },
         min: 0,
-        max: 24,
+        max: 9,
       },
     },
     elements: {
