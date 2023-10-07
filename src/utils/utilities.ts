@@ -41,6 +41,10 @@ export function minMaxify(arr: MinutelyForecast[]) {
     const current = data[i] > data[i - 1] ? '+' : '-';
 
     // if sign is different i.e. local min/max detected
+    if (data[i - 1] === 0) {
+      localMinMaxArr[i - 1] = 0;
+      continue;
+    }
     if (current !== sign) {
       localMinMaxArr[i - 1] = data[i - 1];
       sign = current;

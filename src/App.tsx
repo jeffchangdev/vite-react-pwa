@@ -26,7 +26,7 @@ function App() {
   const [locale, setLocale] = useState<Locale[]>();
   const [status, setStatus] = useState<string>('loading');
 
-  const apiKey = '3853991e651353fcbcf2e48d3efa1bb8';
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     const fetchData = async () => {
